@@ -1,31 +1,29 @@
 package operations;
 
-import operations.utils.DivideIntoMosaics;
-import operations.utils.Map;
-import operations.utils.Reduce;
+import matrixes.DenseMatrix;
+import operations.utils.*;
 
 import java.util.List;
 
-public class DenseMatrixTiledMultiplication {
-
+public class DenseMatrixTiledMultiplication implements MatrixMultiplication<DenseMatrix, DenseMatrix, DenseMatrix>{
     int sizeMosaic;
 
     public DenseMatrixTiledMultiplication(int sizeMosaic) {
         this.sizeMosaic=sizeMosaic;
     }
 
-    public double[][] multiply(double[][] A, double[][] B) {
+    public DenseMatrix multiply(DenseMatrix A, DenseMatrix B) {
 
-        DivideIntoMosaics divideIntoMosaics = new DivideIntoMosaics();
-        List<double[][]> mosaicListA = divideIntoMosaics.divideIntoMosaics(A, this.sizeMosaic);
-        List<double[][]> mosaicListB = divideIntoMosaics.divideIntoMosaics(B, this.sizeMosaic);
+        Partitioner divideIntoMosaics = new Partitioner();
+        List<DenseMatrix> mosaicListA = divideIntoMosaics.divide(A, this.sizeMosaic);
+        List<DenseMatrix> mosaicListB = divideIntoMosaics.divide(B, this.sizeMosaic);
 
-        int nMosaicsPerRow = (int) Math.ceil((double) A.length/sizeMosaic);
+        int nMosaicsPerRow = (int) Math.ceil((double) A.size()/sizeMosaic);
 
-        Map map = new Map();
-        List<double[][]> resultList = map.map(mosaicListA, mosaicListB, nMosaicsPerRow);
+        Mapper map = new Mapper();
+        List<DenseMatrix> resultList = map.map(mosaicListA, mosaicListB, nMosaicsPerRow);
 
-        Reduce reduce = new Reduce(nMosaicsPerRow);
+        Reducer reduce = new Reducer(nMosaicsPerRow);
         return reduce.reduce(resultList);
     }
 }

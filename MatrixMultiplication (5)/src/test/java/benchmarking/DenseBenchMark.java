@@ -3,8 +3,7 @@ package benchmarking;
 
 import builders.DenseMatrixBuilder;
 import matrixes.DenseMatrix;
-import operations.DenseMatrixStandardMultiplication;
-import operations.DenseMatrixTiledMultiplicationTest;
+import operations.DenseMatrixTiledMultiplication;
 import operations.MatrixMultiplication;
 import org.openjdk.jmh.annotations.*;
 
@@ -18,13 +17,8 @@ public class DenseBenchMark {
     private static final int SIZE = 1024;
 
     @Benchmark
-    public void standardMatrixMultiplication() {
-        executeWith(new DenseMatrixStandardMultiplication());
-    }
-
-    @Benchmark
-    public void tiledMatrixMultiplicationTest() {
-        executeWith(new DenseMatrixTiledMultiplicationTest(3));
+    public void tiledMatrixMultiplication() {
+        executeWith(new DenseMatrixTiledMultiplication(3));
     }
 
 

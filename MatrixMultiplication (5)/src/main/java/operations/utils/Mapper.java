@@ -6,7 +6,7 @@ import matrixes.DenseMatrix;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapTest {
+public class Mapper {
     public List<DenseMatrix> map(List<DenseMatrix> mosaicListA, List<DenseMatrix> mosaicListB, int nMosaicsPerRow) {
         int initialRowCounter = 0, finalRowCounter;
         List<DenseMatrix> resultList = new ArrayList<>();

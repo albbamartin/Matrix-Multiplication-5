@@ -3,7 +3,7 @@ package operations.utils;
 import builders.DenseMatrixBuilder;
 import matrixes.DenseMatrix;
 
-public class EliminateZerosTest {
+public class EdgeZerosEliminator {
     public DenseMatrix eliminateRowsOfZeros(DenseMatrix matrix) {
         int lastRow = matrix.size() - 1;
         while (lastRow >= 0) {

@@ -6,15 +6,15 @@ import matrixes.DenseMatrix;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReduceTest {
+public class Reducer {
     int nMosaicsPerRow;
-    public ReduceTest(int nMosaicsPerRow){
+    public Reducer(int nMosaicsPerRow){
         this.nMosaicsPerRow = nMosaicsPerRow;
     }
 
     public DenseMatrix reduce(List<DenseMatrix> mosaicList) {
         DenseMatrix result = placeTiles(addingUpTiles(mosaicList));
-        EliminateZerosTest eliminateZeros = new EliminateZerosTest();
+        EdgeZerosEliminator eliminateZeros = new EdgeZerosEliminator();
         result = eliminateZeros.eliminateRowsOfZeros(result);
         return eliminateZeros.eliminateColumnsOfZeros(result);
     }

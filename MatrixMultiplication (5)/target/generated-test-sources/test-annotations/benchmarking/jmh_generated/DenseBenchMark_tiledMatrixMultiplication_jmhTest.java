@@ -33,7 +33,7 @@ import org.openjdk.jmh.results.AggregationPolicy;
 import org.openjdk.jmh.runner.FailureAssistException;
 
 import benchmarking.jmh_generated.DenseBenchMark_jmhType;
-public final class DenseBenchMark_tiledMatrixMultiplicationTest_jmhTest {
+public final class DenseBenchMark_tiledMatrixMultiplication_jmhTest {
 
     byte p000, p001, p002, p003, p004, p005, p006, p007, p008, p009, p010, p011, p012, p013, p014, p015;
     byte p016, p017, p018, p019, p020, p021, p022, p023, p024, p025, p026, p027, p028, p029, p030, p031;
@@ -58,7 +58,7 @@ public final class DenseBenchMark_tiledMatrixMultiplicationTest_jmhTest {
     Blackhole blackhole;
     Control notifyControl;
 
-    public BenchmarkTaskResult tiledMatrixMultiplicationTest_Throughput(InfraControl control, ThreadParams threadParams) throws Throwable {
+    public BenchmarkTaskResult tiledMatrixMultiplication_Throughput(InfraControl control, ThreadParams threadParams) throws Throwable {
         this.benchmarkParams = control.benchmarkParams;
         this.iterationParams = control.iterationParams;
         this.threadParams    = threadParams;
@@ -75,17 +75,17 @@ public final class DenseBenchMark_tiledMatrixMultiplicationTest_jmhTest {
 
             control.announceWarmupReady();
             while (control.warmupShouldWait) {
-                l_densebenchmark0_0.tiledMatrixMultiplicationTest();
+                l_densebenchmark0_0.tiledMatrixMultiplication();
                 res.allOps++;
             }
 
             notifyControl.startMeasurement = true;
-            tiledMatrixMultiplicationTest_thrpt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_densebenchmark0_0);
+            tiledMatrixMultiplication_thrpt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_densebenchmark0_0);
             notifyControl.stopMeasurement = true;
             control.announceWarmdownReady();
             try {
                 while (control.warmdownShouldWait) {
-                    l_densebenchmark0_0.tiledMatrixMultiplicationTest();
+                    l_densebenchmark0_0.tiledMatrixMultiplication();
                     res.allOps++;
                 }
             } catch (Throwable e) {
@@ -104,19 +104,19 @@ public final class DenseBenchMark_tiledMatrixMultiplicationTest_jmhTest {
             res.measuredOps *= opsPerInv;
             res.measuredOps /= batchSize;
             BenchmarkTaskResult results = new BenchmarkTaskResult((long)res.allOps, (long)res.measuredOps);
-            results.add(new ThroughputResult(ResultRole.PRIMARY, "tiledMatrixMultiplicationTest", res.measuredOps, res.getTime(), benchmarkParams.getTimeUnit()));
+            results.add(new ThroughputResult(ResultRole.PRIMARY, "tiledMatrixMultiplication", res.measuredOps, res.getTime(), benchmarkParams.getTimeUnit()));
             this.blackhole.evaporate("Yes, I am Stephen Hawking, and know a thing or two about black holes.");
             return results;
         } else
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void tiledMatrixMultiplicationTest_thrpt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, DenseBenchMark_jmhType l_densebenchmark0_0) throws Throwable {
+    public static void tiledMatrixMultiplication_thrpt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, DenseBenchMark_jmhType l_densebenchmark0_0) throws Throwable {
         long operations = 0;
         long realTime = 0;
         result.startTime = System.nanoTime();
         do {
-            l_densebenchmark0_0.tiledMatrixMultiplicationTest();
+            l_densebenchmark0_0.tiledMatrixMultiplication();
             operations++;
         } while(!control.isDone);
         result.stopTime = System.nanoTime();
@@ -125,7 +125,7 @@ public final class DenseBenchMark_tiledMatrixMultiplicationTest_jmhTest {
     }
 
 
-    public BenchmarkTaskResult tiledMatrixMultiplicationTest_AverageTime(InfraControl control, ThreadParams threadParams) throws Throwable {
+    public BenchmarkTaskResult tiledMatrixMultiplication_AverageTime(InfraControl control, ThreadParams threadParams) throws Throwable {
         this.benchmarkParams = control.benchmarkParams;
         this.iterationParams = control.iterationParams;
         this.threadParams    = threadParams;
@@ -142,17 +142,17 @@ public final class DenseBenchMark_tiledMatrixMultiplicationTest_jmhTest {
 
             control.announceWarmupReady();
             while (control.warmupShouldWait) {
-                l_densebenchmark0_0.tiledMatrixMultiplicationTest();
+                l_densebenchmark0_0.tiledMatrixMultiplication();
                 res.allOps++;
             }
 
             notifyControl.startMeasurement = true;
-            tiledMatrixMultiplicationTest_avgt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_densebenchmark0_0);
+            tiledMatrixMultiplication_avgt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_densebenchmark0_0);
             notifyControl.stopMeasurement = true;
             control.announceWarmdownReady();
             try {
                 while (control.warmdownShouldWait) {
-                    l_densebenchmark0_0.tiledMatrixMultiplicationTest();
+                    l_densebenchmark0_0.tiledMatrixMultiplication();
                     res.allOps++;
                 }
             } catch (Throwable e) {
@@ -171,19 +171,19 @@ public final class DenseBenchMark_tiledMatrixMultiplicationTest_jmhTest {
             res.measuredOps *= opsPerInv;
             res.measuredOps /= batchSize;
             BenchmarkTaskResult results = new BenchmarkTaskResult((long)res.allOps, (long)res.measuredOps);
-            results.add(new AverageTimeResult(ResultRole.PRIMARY, "tiledMatrixMultiplicationTest", res.measuredOps, res.getTime(), benchmarkParams.getTimeUnit()));
+            results.add(new AverageTimeResult(ResultRole.PRIMARY, "tiledMatrixMultiplication", res.measuredOps, res.getTime(), benchmarkParams.getTimeUnit()));
             this.blackhole.evaporate("Yes, I am Stephen Hawking, and know a thing or two about black holes.");
             return results;
         } else
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void tiledMatrixMultiplicationTest_avgt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, DenseBenchMark_jmhType l_densebenchmark0_0) throws Throwable {
+    public static void tiledMatrixMultiplication_avgt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, DenseBenchMark_jmhType l_densebenchmark0_0) throws Throwable {
         long operations = 0;
         long realTime = 0;
         result.startTime = System.nanoTime();
         do {
-            l_densebenchmark0_0.tiledMatrixMultiplicationTest();
+            l_densebenchmark0_0.tiledMatrixMultiplication();
             operations++;
         } while(!control.isDone);
         result.stopTime = System.nanoTime();
@@ -192,7 +192,7 @@ public final class DenseBenchMark_tiledMatrixMultiplicationTest_jmhTest {
     }
 
 
-    public BenchmarkTaskResult tiledMatrixMultiplicationTest_SampleTime(InfraControl control, ThreadParams threadParams) throws Throwable {
+    public BenchmarkTaskResult tiledMatrixMultiplication_SampleTime(InfraControl control, ThreadParams threadParams) throws Throwable {
         this.benchmarkParams = control.benchmarkParams;
         this.iterationParams = control.iterationParams;
         this.threadParams    = threadParams;
@@ -209,7 +209,7 @@ public final class DenseBenchMark_tiledMatrixMultiplicationTest_jmhTest {
 
             control.announceWarmupReady();
             while (control.warmupShouldWait) {
-                l_densebenchmark0_0.tiledMatrixMultiplicationTest();
+                l_densebenchmark0_0.tiledMatrixMultiplication();
                 res.allOps++;
             }
 
@@ -218,12 +218,12 @@ public final class DenseBenchMark_tiledMatrixMultiplicationTest_jmhTest {
             int batchSize = iterationParams.getBatchSize();
             int opsPerInv = benchmarkParams.getOpsPerInvocation();
             SampleBuffer buffer = new SampleBuffer();
-            tiledMatrixMultiplicationTest_sample_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, buffer, targetSamples, opsPerInv, batchSize, l_densebenchmark0_0);
+            tiledMatrixMultiplication_sample_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, buffer, targetSamples, opsPerInv, batchSize, l_densebenchmark0_0);
             notifyControl.stopMeasurement = true;
             control.announceWarmdownReady();
             try {
                 while (control.warmdownShouldWait) {
-                    l_densebenchmark0_0.tiledMatrixMultiplicationTest();
+                    l_densebenchmark0_0.tiledMatrixMultiplication();
                     res.allOps++;
                 }
             } catch (Throwable e) {
@@ -239,14 +239,14 @@ public final class DenseBenchMark_tiledMatrixMultiplicationTest_jmhTest {
             res.allOps /= batchSize;
             res.measuredOps *= opsPerInv;
             BenchmarkTaskResult results = new BenchmarkTaskResult((long)res.allOps, (long)res.measuredOps);
-            results.add(new SampleTimeResult(ResultRole.PRIMARY, "tiledMatrixMultiplicationTest", buffer, benchmarkParams.getTimeUnit()));
+            results.add(new SampleTimeResult(ResultRole.PRIMARY, "tiledMatrixMultiplication", buffer, benchmarkParams.getTimeUnit()));
             this.blackhole.evaporate("Yes, I am Stephen Hawking, and know a thing or two about black holes.");
             return results;
         } else
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void tiledMatrixMultiplicationTest_sample_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, SampleBuffer buffer, int targetSamples, long opsPerInv, int batchSize, DenseBenchMark_jmhType l_densebenchmark0_0) throws Throwable {
+    public static void tiledMatrixMultiplication_sample_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, SampleBuffer buffer, int targetSamples, long opsPerInv, int batchSize, DenseBenchMark_jmhType l_densebenchmark0_0) throws Throwable {
         long realTime = 0;
         long operations = 0;
         int rnd = (int)System.nanoTime();
@@ -261,7 +261,7 @@ public final class DenseBenchMark_tiledMatrixMultiplicationTest_jmhTest {
             }
             for (int b = 0; b < batchSize; b++) {
                 if (control.volatileSpoiler) return;
-                l_densebenchmark0_0.tiledMatrixMultiplicationTest();
+                l_densebenchmark0_0.tiledMatrixMultiplication();
             }
             if (sample) {
                 buffer.add((System.nanoTime() - time) / opsPerInv);
@@ -279,7 +279,7 @@ public final class DenseBenchMark_tiledMatrixMultiplicationTest_jmhTest {
     }
 
 
-    public BenchmarkTaskResult tiledMatrixMultiplicationTest_SingleShotTime(InfraControl control, ThreadParams threadParams) throws Throwable {
+    public BenchmarkTaskResult tiledMatrixMultiplication_SingleShotTime(InfraControl control, ThreadParams threadParams) throws Throwable {
         this.benchmarkParams = control.benchmarkParams;
         this.iterationParams = control.iterationParams;
         this.threadParams    = threadParams;
@@ -296,7 +296,7 @@ public final class DenseBenchMark_tiledMatrixMultiplicationTest_jmhTest {
             notifyControl.startMeasurement = true;
             RawResults res = new RawResults();
             int batchSize = iterationParams.getBatchSize();
-            tiledMatrixMultiplicationTest_ss_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, batchSize, l_densebenchmark0_0);
+            tiledMatrixMultiplication_ss_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, batchSize, l_densebenchmark0_0);
             control.preTearDown();
 
             if (control.isLastIteration()) {
@@ -305,19 +305,19 @@ public final class DenseBenchMark_tiledMatrixMultiplicationTest_jmhTest {
             int opsPerInv = control.benchmarkParams.getOpsPerInvocation();
             long totalOps = opsPerInv;
             BenchmarkTaskResult results = new BenchmarkTaskResult(totalOps, totalOps);
-            results.add(new SingleShotResult(ResultRole.PRIMARY, "tiledMatrixMultiplicationTest", res.getTime(), totalOps, benchmarkParams.getTimeUnit()));
+            results.add(new SingleShotResult(ResultRole.PRIMARY, "tiledMatrixMultiplication", res.getTime(), totalOps, benchmarkParams.getTimeUnit()));
             this.blackhole.evaporate("Yes, I am Stephen Hawking, and know a thing or two about black holes.");
             return results;
         } else
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void tiledMatrixMultiplicationTest_ss_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, int batchSize, DenseBenchMark_jmhType l_densebenchmark0_0) throws Throwable {
+    public static void tiledMatrixMultiplication_ss_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, int batchSize, DenseBenchMark_jmhType l_densebenchmark0_0) throws Throwable {
         long realTime = 0;
         result.startTime = System.nanoTime();
         for (int b = 0; b < batchSize; b++) {
             if (control.volatileSpoiler) return;
-            l_densebenchmark0_0.tiledMatrixMultiplicationTest();
+            l_densebenchmark0_0.tiledMatrixMultiplication();
         }
         result.stopTime = System.nanoTime();
         result.realTime = realTime;

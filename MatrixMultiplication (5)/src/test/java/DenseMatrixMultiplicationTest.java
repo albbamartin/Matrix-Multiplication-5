@@ -1,7 +1,6 @@
 import builders.DenseMatrixBuilder;
 import matrixes.DenseMatrix;
-import operations.DenseMatrixStandardMultiplication;
-import operations.DenseMatrixTiledMultiplicationTest;
+import operations.DenseMatrixTiledMultiplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -22,22 +21,11 @@ public class DenseMatrixMultiplicationTest {
     }
 
     @Test
-    public void multiply_two_random_dense_matrix() {
-        DenseMatrix A = createRandomMatrix(this.size);
-        DenseMatrix denseMatrixA = createRandomMatrix(this.size);
-        DenseMatrix denseMatrixB = createRandomMatrix(this.size);
-        DenseMatrixStandardMultiplication denseMatrixStandardMultiplication = new DenseMatrixStandardMultiplication();
-        DenseMatrix c = denseMatrixStandardMultiplication.multiply(denseMatrixA,denseMatrixB);
-        Vector vector = new Vector(this.size);
-        assertThat(vector.multiply(c)).isEqualTo(vector.multiply(A).multiply(denseMatrixA));
-    }
-
-    @Test
     public void multiply_two_random_dense_matrix_with_tiles() {
         DenseMatrix denseMatrixA = createRandomMatrix(this.size);
         DenseMatrix denseMatrixB = createRandomMatrix(this.size);
-        DenseMatrixTiledMultiplicationTest denseTiledMatrixMultiplicationTest = new DenseMatrixTiledMultiplicationTest(3);
-        DenseMatrix c = denseTiledMatrixMultiplicationTest.multiply(denseMatrixA,denseMatrixB);
+        DenseMatrixTiledMultiplication denseTiledMatrixMultiplication = new DenseMatrixTiledMultiplication(3);
+        DenseMatrix c = denseTiledMatrixMultiplication.multiply(denseMatrixA,denseMatrixB);
         Vector vector = new Vector(this.size);
         assertThat(vector.multiply(c)).isEqualTo(vector.multiply(denseMatrixA).multiply(denseMatrixA));
     }
